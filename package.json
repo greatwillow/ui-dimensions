@@ -7,7 +7,7 @@
         "tsc": "tsc -p tsconfig.json",
         "prepublishOnly": "npm run tsc",
         "lint": "npx eslint src/**/*.ts --fix-dry-run",
-        "test": "react-scripts test"
+        "test": "echo \"No tests set up to run.\""
     },
     "author": "Greg Denys",
     "license": "MIT",
