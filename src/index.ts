@@ -1,27 +1,14 @@
-import { createBaseDimension } from './createBaseDimension'
-import { createInterstellarDimension } from './createInterstellarDimension'
-import { 
+export { createBaseDimension } from './createBaseDimension'
+export { createInterstellarDimension } from './createInterstellarDimension'
+export { 
     getStore, 
     setStore, 
     createStore 
 } from './storeRegistry'
-import { Provider } from './Provider'
-import { 
+export { Provider } from './Provider'
+export { 
     Dimension, 
     DimensionDefinitions,
     DimensionReducers, 
     StringTheoryStore 
 } from './types'
-
-export {
-    getStore,
-    setStore,
-    createStore,
-    createBaseDimension,
-    createInterstellarDimension,
-    Provider,
-    Dimension, 
-    DimensionReducers,
-    DimensionDefinitions, 
-    StringTheoryStore 
-}
