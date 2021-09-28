@@ -7,16 +7,16 @@ import {
 import { 
     Reducer, 
     Reducers, 
-    StringTheoryStore, 
+    MainStore, 
     AnyState 
 } from './types'
 
-let store: StringTheoryStore<any>
+let store: MainStore<any>
 
 /**
  * @returns the current or newly created store
  */
-const getStore = <TState>(): StringTheoryStore<TState> => {
+const getStore = <TState>(): MainStore<TState> => {
     if(store)
         return store
 
@@ -32,7 +32,7 @@ const getStore = <TState>(): StringTheoryStore<TState> => {
  *
  * @returns the current store
  */
-const setStore = <TState>(initialStore: StringTheoryStore<TState>): StringTheoryStore<TState> | null => {
+const setStore = <TState>(initialStore: MainStore<TState>): MainStore<TState> | null => {
     if(store != null) {
         console.warn('Store is already initialized. Call setStore before the first getStore. This call will be ignored.')
         return null
@@ -57,13 +57,13 @@ const setStore = <TState>(initialStore: StringTheoryStore<TState>): StringTheory
 const createStore = <TState extends AnyState>(
     initialReducers?: Reducers<TState>,
     enhancer?: StoreEnhancer<any>
-): StringTheoryStore<TState> => {
+): MainStore<TState> => {
     if(typeof initialReducers !== 'object')
         throw new Error('initialReducers should be an object suitable to be passed to combineReducers')
 
     const reducers: Reducers<TState> = { ...initialReducers, _stub_: (s: TState) => s || 0 }
 
-    const store: StringTheoryStore<TState> = reduxCreateStore(
+    const store: MainStore<TState> = reduxCreateStore(
         combineReducers(reducers),
         enhancer,
     )
