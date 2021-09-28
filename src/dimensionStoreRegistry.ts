@@ -1,13 +1,13 @@
 import { 
     AnyState, 
-    StringTheoryStore, 
+    MainStore, 
     DimensionStore 
 } from './types'
 
 const createDimensionStore = <
     TState extends AnyState
     >(
-        store: StringTheoryStore<TState>, 
+        store: MainStore<TState>, 
         storeKey: string
     ): DimensionStore<TState> => {
     const getState = () => store.getState()[storeKey]

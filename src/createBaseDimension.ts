@@ -4,7 +4,7 @@ import { createDimensionStore } from './dimensionStoreRegistry'
 import { 
     BaseReducers, 
     DimensionReducers, 
-    StringTheoryStore,
+    MainStore,
     Reducers,
     DispatchAction,
     AnyState,
@@ -37,7 +37,7 @@ const initializeDimensionReducers = <
         dimensionStoreKey: string,
         initialState: TState,
         reducers: DimensionReducers<TBaseReducers>,
-        store: StringTheoryStore<TState>
+        store: MainStore<TState>
     ): BaseReducers<TState> => {
     const baseReducers: BaseReducers<TState> = {}
 
@@ -74,7 +74,7 @@ const createBaseDimension = <
         initialStateClosure: StateClosure<TState, TExternalDependencies>,
         reducersClosure: ReducersClosure<TState, TReducers, TExternalDependencies>,
         externalDependencies: TExternalDependencies,
-        store: StringTheoryStore<TState> = getStore(),
+        store: MainStore<TState> = getStore(),
     ): BaseDimension<TState, TReducers> => {
 
     const initialState = initialStateClosure(externalDependencies)

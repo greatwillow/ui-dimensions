@@ -20,7 +20,7 @@ import {
  *
  * @returns an object representing the store dimension properties
  */
-const createInterstellarDimension = <
+const createDimension = <
     TDimensionDefinitions extends DimensionDefinitions<any, any, any, any, any>,
     TExternalDependencies
     >(
@@ -81,4 +81,4 @@ const createInterstellarDimension = <
     }
 }
 
-export { createInterstellarDimension }
+export { createDimension }

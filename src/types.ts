@@ -18,7 +18,7 @@ export enum asyncLifecycleStatuses {
 }
 
 export type ProviderProps = {
-    store?: StringTheoryStore<any>
+    store?: MainStore<any>
     context?: Context<ReactReduxContextValue>
     children?: ReactChild | ReactChildren
 }
@@ -81,7 +81,7 @@ export type Dimension<
     useAsyncStatuses?: () => AsyncStatusesState<TAsyncActions> 
 }
 
-export type StringTheoryStore<TState> = Store<TState> & {
+export type MainStore<TState> = Store<TState> & {
     injectReducer(key: string, reducer: Reducer<TState>): void
 }
 
@@ -239,5 +239,5 @@ export type DimensionParameters<
                             TExternalDependencies>,
     externalDependencies: TExternalDependencies,
     addAsyncStatusAutomationState?: boolean,
-    store?: StringTheoryStore<TDimensionDefinitions['state']>,
+    store?: MainStore<TDimensionDefinitions['state']>,
 }

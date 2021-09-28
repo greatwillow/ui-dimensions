@@ -1,5 +1,5 @@
 export { createBaseDimension } from './createBaseDimension'
-export { createInterstellarDimension } from './createInterstellarDimension'
+export { createDimension } from './createDimension'
 export { 
     getStore, 
     setStore, 
@@ -10,5 +10,5 @@ export {
     Dimension, 
     DimensionDefinitions,
     DimensionReducers, 
-    StringTheoryStore 
+    MainStore as StringTheoryStore 
 } from './types'

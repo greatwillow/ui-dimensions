@@ -1,6 +1,6 @@
-# <a href='https://github.com/'><img src='https://rascto.ca/sites/default/files/styles/featuredimg/public/M020_LRGB_final_MtLemmon.jpg?itok=mqvzkXlz' style="margin: 20px auto; display: block; width: 100%;" alt='Redux String Theory' aria-label='redux-string-theory' /></a>
+# <a href='https://github.com/'><img src='https://rascto.ca/sites/default/files/styles/featuredimg/public/M020_LRGB_final_MtLemmon.jpg?itok=mqvzkXlz' style="margin: 20px auto; display: block; width: 100%;" alt='Redux String Theory' aria-label='dimension-state' /></a>
 
-# redux-string-theory
+# dimension-state
 
 
 ## Summary
@@ -17,14 +17,14 @@ Taking into consideration these observations, it's clear that the community has 
 ### Installation
 
 ```
-npm install redux-string-theory
+npm install dimension-state
 ```
 
 ### Base Usage
 
-The following example demonstrates the primary simple use-case for string-theory where we create a state dimension with ```createBaseDimension()``` and then use it in the following React code.  This shows how string-theory achieves the common functionality that Redux provides in a much more condensed and simple way. 
+The following example demonstrates the primary simple use-case for dimension-state where we create a state dimension with ```createBaseDimension()``` and then use it in the following React code.  This shows how dimension-state achieves the common functionality that Redux provides in a much more condensed and simple way. 
 
-An added feature here, however, is that by wrapping our initial state, and reducers within a set of closures, string-theory is able to provide a set of given dependencies to each of these functions.  
+An added feature here, however, is that by wrapping our initial state, and reducers within a set of closures, dimension-state is able to provide a set of given dependencies to each of these functions.  
 
 Although it is typically sufficient to use import statements in the code-base, there are certain cases where this form of dependency injection can by advantageous, and at a minimum can simplify testing while removing the need for extra import statements throughout different files.
 

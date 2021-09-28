@@ -26,7 +26,7 @@ const getStore = <TState>(): StringTheoryStore<TState> => {
 }
 
 /**
- * Call setStore to provide your own store for redux-string-theory to use. You'll need to use this if you want to use middleware.
+ * Call setStore to provide your own store for dimension-state to use. You'll need to use this if you want to use middleware.
  *
  * @param store store to set in the store-registry
  *
