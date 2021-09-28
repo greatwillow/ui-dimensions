@@ -1,0 +1,45 @@
+{
+    "name": "dimension-state",
+    "version": "1.0.0",
+    "description": "Simple modular Redux state management",
+    "main": "./lib/index.js",
+    "scripts": {
+        "tsc": "tsc -p tsconfig.json",
+        "prepublishOnly": "npm run tsc",
+        "lint": "npx eslint src/**/*.ts --fix-dry-run",
+        "test": "react-scripts test"
+    },
+    "author": "Greg Denys",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "dependencies": {
+        "@types/react-redux": "^7.1.5",
+        "react-redux": "^7.1.1",
+        "redux": "^4.0.4"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.14.0",
+        "@typescript-eslint/parser": "^4.11.1",
+        "eslint": "^7.16.0",
+        "eslint-import-resolver-typescript": "^2.3.0",
+        "eslint-plugin-import": "^2.22.1",
+        "react": "^16.10.2",
+        "react-dom": "^16.10.2",
+        "react-scripts": "^3.2.0",
+        "react-test-renderer": "^16.10.2",
+        "typescript": "^4.1.3"
+    },
+    "keywords": [
+        "react",
+        "redux",
+        "state",
+        "hooks",
+        "DRY",
+        "boilerplate",
+        "module",
+        "migration"
+    ]
+}

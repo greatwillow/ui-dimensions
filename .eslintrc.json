@@ -1,0 +1,73 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+        "@typescript-eslint", 
+        "import"
+    ],
+    "ignorePatterns": ["node_modules"],
+    "rules": {
+        "brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
+        "consistent-return": "off",
+        "curly": ["error", "multi-or-nest"],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "no-console": "warn",
+        "nonblock-statement-body-position": ["error", "below"],
+        "@typescript-eslint/no-explicit-any": "off",
+        "no-underscore-dangle": "off",
+        "import/prefer-default-export": "off",
+        "camelcase": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "indent": [
+            "error",
+            4,
+            {
+                "VariableDeclarator": "first"
+            }
+        ],
+        "keyword-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true,
+                "overrides": {
+                    "if": { "after": false },
+                    "for": { "after": false },
+                    "catch": { "after": false },
+                    "while": { "after": false }
+                }
+            }
+        ],
+        "linebreak-style": ["error", "windows"],
+        "max-len": ["error", { "code": 150 }],
+        "object-curly-spacing": ["error", "always", { "arraysInObjects": false, "objectsInObjects": false }],
+        "one-var": ["off"],
+        "semi": ["error", "never"],
+        "spaced-comment": "off"
+    },
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts"]
+          },
+        "import/resolver": {
+            "node": {
+                "extensions": [".ts"]
+            }
+        }
+    }
+}
