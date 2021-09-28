@@ -70,6 +70,7 @@ const createStore = <TState extends AnyState>(
     
     store.injectReducer = (key: string, reducer: Reducer<TState>) => {
         if(reducers[key])
+            // eslint-disable-next-line no-console
             console.warn(`injectReducer: replacing reducer for key '${key}'`)
         reducers[key] = reducer
         store.replaceReducer(combineReducers<TState>(reducers as ReducersMapObject<any>))

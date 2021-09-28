@@ -1,4 +1,4 @@
-# <a href='https://github.com/'><img src='https://rascto.ca/sites/default/files/styles/featuredimg/public/M020_LRGB_final_MtLemmon.jpg?itok=mqvzkXlz' style="margin: 20px auto; display: block; width: 100%;" alt='Redux String Theory' aria-label='dimension-state' /></a>
+# <a href='https://github.com/'><img src='https://rascto.ca/sites/default/files/styles/featuredimg/public/M020_LRGB_final_MtLemmon.jpg?itok=mqvzkXlz' style="margin: 20px auto; display: block; width: 100%;" alt='Dimension State' aria-label='dimension-state' /></a>
 
 # dimension-state
 
@@ -105,7 +105,7 @@ From the above example, we have the following observations.
 
 
 ### Full Usage
-We can add more interesting functionality throught the use of ```createStringTheoryDimension```
+We can add more interesting functionality throught the use of ```createDimension```
 
 ``` js
 const asyncActionsClosure = ({ api, dimension }) => {
@@ -118,13 +118,13 @@ const asyncActionsClosure = ({ api, dimension }) => {
 }
 
 
-const dimension = createStringTheoryDimension({
+const dimension = createDimension({
                                 dimensionStoreKey,
                                 initialStateClosure,
                                 reducersClosure,
                                 selectorsClosure,
                                 asyncActionsClosure,
-                                customHooksClosure,
+                                executorsClosure,
                                 externalDependencies,
                             })
 ```

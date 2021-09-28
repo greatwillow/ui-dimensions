@@ -73,11 +73,11 @@ export type Dimension<
         TReducers extends BaseReducers<TState>, 
         TSelectors, 
         TAsyncActions, 
-        TCustomHooks> = BaseDimension<TState, TReducers
+        TExecutors> = BaseDimension<TState, TReducers
     > & {
     selectors: { [key in keyof TSelectors]: TSelectors[key] },
     asyncActions: { [key in keyof TAsyncActions]: TAsyncActions[key] },
-    customHooks: { [key in keyof TCustomHooks]: TCustomHooks[key] },
+    executors: { [key in keyof TExecutors]: TExecutors[key] },
     useAsyncStatuses?: () => AsyncStatusesState<TAsyncActions> 
 }
 
@@ -90,14 +90,14 @@ export type DimensionDefinitions<
         TReducers extends BaseReducers<TState>, 
         TAsyncActions extends AsyncActions, 
         TSelectors, 
-        TCustomHooks
+        TExecutors
     > = {
     asyncActions: TAsyncActions
-    customHooks: TCustomHooks
+    executors: TExecutors
     baseDimension: BaseDimension<TState, TReducers>,
     baseDimensionWithSelectors: BaseDimensionWithSelectors<TState, TReducers, TSelectors>,
     baseDimensionWithSelectorsAndAsyncActions: BaseDimensionWithSelectorsAndAsyncActions<TState, TReducers, TSelectors, TAsyncActions>,
-    dimension: Dimension<TState, TReducers, TSelectors, TAsyncActions, TCustomHooks>
+    dimension: Dimension<TState, TReducers, TSelectors, TAsyncActions, TExecutors>
     reducers: TReducers
     selectors: TSelectors
     state: TState
@@ -132,7 +132,7 @@ export type Selectors = {
     [key: string]: any
 }
 
-export type CustomHooks = {
+export type Executors = {
     [key: string]: any
 }
 
@@ -169,17 +169,17 @@ export type AsyncActionsClosure<
         ...externalDependencies
     }: AsyncActionsClosureParameters<TState, TBaseReducers, TSelectors, TExternalDependencies>) => TAsyncActions
   
-export type CustomHooksClosure<
+export type ExecutorsClosure<
         TState, 
         TBaseReducers extends BaseReducers<TState>, 
         TSelectors, 
         TAsyncActions extends AsyncActions, 
-        TCustomHooks extends CustomHooks, 
+        TExecutors extends Executors, 
         TExternalDependencies
     > = ({ 
         dimension, 
         ...externalDependencies 
-    }: CustomHooksClosureParameters<TState, TBaseReducers, TSelectors, TAsyncActions, TExternalDependencies>) => TCustomHooks
+    }: ExecutorsClosureParameters<TState, TBaseReducers, TSelectors, TAsyncActions, TExternalDependencies>) => TExecutors
 
 type SelectorsClosureParameters<
         TState, 
@@ -198,7 +198,7 @@ type AsyncActionsClosureParameters<
     dimension: BaseDimensionWithSelectors<TState, TBaseReducers, TSelectors> 
 } & TExternalDependencies
 
-type CustomHooksClosureParameters<
+type ExecutorsClosureParameters<
         TState, TBaseReducers extends BaseReducers<TState>, 
         TSelectors, 
         TAsyncActions extends AsyncActions, 
@@ -230,12 +230,12 @@ export type DimensionParameters<
                             TDimensionDefinitions['selectors'], 
                             TDimensionDefinitions['asyncActions'], 
                           TExternalDependencies>,
-    customHooksClosure?: CustomHooksClosure<
+    executorsClosure?: ExecutorsClosure<
                             TDimensionDefinitions['state'], 
                             TDimensionDefinitions['reducers'], 
                             TDimensionDefinitions['selectors'], 
                             TDimensionDefinitions['asyncActions'], 
-                            TDimensionDefinitions['customHooks'], 
+                            TDimensionDefinitions['executors'], 
                             TExternalDependencies>,
     externalDependencies: TExternalDependencies,
     addAsyncStatusAutomationState?: boolean,

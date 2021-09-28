@@ -38,7 +38,7 @@ const createDimension = <
         reducersClosure,
         selectorsClosure,
         asyncActionsClosure,
-        customHooksClosure,
+        executorsClosure,
         externalDependencies,
         addAsyncStatusAutomationState,
         store,
@@ -53,7 +53,7 @@ const createDimension = <
     )
 
     let asyncStatusesDimension
-    let customHooks = {}
+    let executors = {}
     const selectors = selectorsClosure({ dimension: baseDimension, ...externalDependencies })
     let asyncActions = asyncActionsClosure({ dimension: { ...baseDimension, selectors }, ...externalDependencies })
 
@@ -69,14 +69,14 @@ const createDimension = <
 
     const useAsyncStatuses = asyncStatusesDimension ? asyncStatusesDimension.use : undefined
 
-    if(customHooksClosure)
-        customHooks = customHooksClosure({ dimension: { ...baseDimension, selectors, asyncActions, useAsyncStatuses }, ...externalDependencies })
+    if(executorsClosure)
+        executors = executorsClosure({ dimension: { ...baseDimension, selectors, asyncActions, useAsyncStatuses }, ...externalDependencies })
 
     return {
         ...baseDimension,
         selectors,
         asyncActions,
-        customHooks,
+        executors,
         useAsyncStatuses, 
     }
 }

@@ -10,5 +10,5 @@ export {
     Dimension, 
     DimensionDefinitions,
     DimensionReducers, 
-    MainStore as StringTheoryStore 
+    MainStore, 
 } from './types'
