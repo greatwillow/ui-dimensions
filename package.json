@@ -1,5 +1,5 @@
 {
-    "name": "ui-dimension-state",
+    "name": "ui-dimensions",
     "version": "1.0.4",
     "description": "Simple modular Redux state management",
     "main": "./lib/index.js",
@@ -20,7 +20,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/greatwillow/ui-dimension-state"
+        "url": "https://github.com/greatwillow/ui-dimensions"
     },
     "dependencies": {
         "@types/react-redux": "^7.1.5",

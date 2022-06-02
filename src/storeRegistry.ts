@@ -1,14 +1,14 @@
-import { 
-    createStore as reduxCreateStore, 
-    combineReducers, 
-    StoreEnhancer, 
+import {
+    createStore as reduxCreateStore,
+    combineReducers,
+    StoreEnhancer,
     ReducersMapObject
 } from 'redux'
-import { 
-    Reducer, 
-    Reducers, 
-    MainStore, 
-    AnyState 
+import {
+    Reducer,
+    Reducers,
+    MainStore,
+    AnyState
 } from './types'
 
 let store: MainStore<any>
@@ -17,7 +17,7 @@ let store: MainStore<any>
  * @returns the current or newly created store
  */
 const getStore = <TState>(): MainStore<TState> => {
-    if(store)
+    if (store)
         return store
 
     store = createStore()
@@ -26,18 +26,18 @@ const getStore = <TState>(): MainStore<TState> => {
 }
 
 /**
- * Call setStore to provide your own store for dimension-state to use. You'll need to use this if you want to use middleware.
+ * Call setStore to provide your own store for ui-dimensions to use. You'll need to use this if you want to use middleware.
  *
  * @param store store to set in the store-registry
  *
  * @returns the current store
  */
 const setStore = <TState>(initialStore: MainStore<TState>): MainStore<TState> | null => {
-    if(store != null) {
+    if (store != null) {
         console.warn('Store is already initialized. Call setStore before the first getStore. This call will be ignored.')
         return null
     }
-    if(typeof initialStore.injectReducer !== 'function')
+    if (typeof initialStore.injectReducer !== 'function')
         throw new Error('Store must support .injectReducer')
 
     store = initialStore
@@ -58,7 +58,7 @@ const createStore = <TState extends AnyState>(
     initialReducers?: Reducers<TState>,
     enhancer?: StoreEnhancer<any>
 ): MainStore<TState> => {
-    if(typeof initialReducers !== 'object')
+    if (typeof initialReducers !== 'object')
         throw new Error('initialReducers should be an object suitable to be passed to combineReducers')
 
     const reducers: Reducers<TState> = { ...initialReducers, _stub_: (s: TState) => s || 0 }
@@ -67,9 +67,9 @@ const createStore = <TState extends AnyState>(
         combineReducers(reducers),
         enhancer,
     )
-    
+
     store.injectReducer = (key: string, reducer: Reducer<TState>) => {
-        if(reducers[key])
+        if (reducers[key])
             // eslint-disable-next-line no-console
             console.warn(`injectReducer: replacing reducer for key '${key}'`)
         reducers[key] = reducer
@@ -77,7 +77,7 @@ const createStore = <TState extends AnyState>(
     }
 
     Object.keys(reducers).forEach((key) => {
-        if(key !== '_stub_')
+        if (key !== '_stub_')
             store.injectReducer(key, reducers[key])
     })
 
