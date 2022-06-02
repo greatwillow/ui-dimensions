@@ -1,6 +1,6 @@
 {
     "name": "ui-dimensions",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Simple modular Redux state management",
     "main": "./lib/index.js",
     "files": [
@@ -13,7 +13,7 @@
         "prepare": "npm run build",
         "prepublishOnly": "npm test && npm run lint",
         "preversion": "npm run lint",
-        "version": "npm run format && git add -A src",
+        "version": "git add -A src",
         "postversion": "git push && git push --tags"
     },
     "author": "Greg Denys",
