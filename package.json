@@ -1,19 +1,26 @@
 {
-    "name": "dimension-state",
+    "name": "ui-dimension-state",
     "version": "1.0.4",
     "description": "Simple modular Redux state management",
     "main": "./lib/index.js",
+    "files": [
+        "lib/**/*"
+    ],
     "scripts": {
-        "tsc": "tsc -p tsconfig.json",
-        "prepublishOnly": "npm run tsc",
+        "build": "tsc -p tsconfig.json",
         "lint": "npx eslint src/**/*.ts --fix-dry-run",
-        "test": "echo \"No tests set up to run.\""
+        "test": "echo \"No tests set up to run.\"",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm test && npm run lint",
+        "preversion": "npm run lint",
+        "version": "npm run format && git add -A src",
+        "postversion": "git push && git push --tags"
     },
     "author": "Greg Denys",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/greatwillow/ui-dimension-state"
     },
     "dependencies": {
         "@types/react-redux": "^7.1.5",

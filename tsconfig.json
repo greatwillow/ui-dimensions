@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
-    "module": "esnext",
+    "target": "es5",
+    "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -18,10 +18,13 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "noEmit": true,
     "jsx": "react"
   },
   "include": [
     "./src"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/test/*"
   ]
 }
