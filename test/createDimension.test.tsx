@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { 
-    createBaseDimension, 
+    createDimension, 
     createStore, 
     Provider
 } from '../src/index'
@@ -15,7 +15,7 @@ const DIMENSION_STORE_KEY = 'PLANET_MANAGER'
 const INITIAL_STATE_PLANET = planetNamesEnum.VENUS
 
 
-describe("createBaseDimension simple case", () => {
+describe("createDimension simple case", () => {
     const store = createStore<PlanetManagerState>({})
 
     const getInitialState = () => ({
@@ -29,13 +29,15 @@ describe("createBaseDimension simple case", () => {
         })
     })
 
-    const dimension = createBaseDimension<PlanetManagerState, PlanetManagerReducers, unknown>(
-        DIMENSION_STORE_KEY,
-        getInitialState,
-        getReducers,
-        {},
+    const dimension = createDimension({
+        dimensionStoreKey: DIMENSION_STORE_KEY,
+        initialStateClosure: getInitialState,
+        reducersClosure: getReducers,
+        asyncActionsClosure: () => ({}),
+        selectorsClosure: () => ({}),
+        externalDependencies: {},
         store
-    )
+    })
 
     const PlanetApp = () => {
         const { planet } = dimension.use()

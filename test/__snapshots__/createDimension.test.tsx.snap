@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createDimension simple case should add properly render state 1`] = `
+<div>
+  Current planet is: 
+  MARS
+</div>
+`;
+
+exports[`createDimension simple case should add properly render state 2`] = `
+<div>
+  Current planet is: 
+  SATURN
+</div>
+`;

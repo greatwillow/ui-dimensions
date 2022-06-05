@@ -1,15 +1,16 @@
 import {
-    ReducersMapObject,
-    StoreEnhancer,
-    combineReducers,
-    createStore as reduxCreateStore
-} from 'redux'
-import {
     AnyState,
     MainStore,
     Reducer,
     Reducers
 } from './types'
+import {
+    combineReducers,
+    ReducersMapObject,
+    createStore as reduxCreateStore,
+    StoreEnhancer
+} from 'redux'
+
 
 let store: MainStore<any>
 

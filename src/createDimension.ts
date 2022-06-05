@@ -1,13 +1,14 @@
 import { createBaseDimension } from './createBaseDimension'
-import { getStore } from './storeRegistry'
 import { 
-    composeAsyncStatusAutomationState, 
-    createAsyncStatusesDimension 
-} from './asyncStatusAutomationHelpers'
-import { 
+    AsyncStatusesState,
     DimensionDefinitions,
     DimensionParameters,
 } from './types'
+import { 
+    composeAsyncStatusAutomationState,
+    createAsyncStatusesDimension
+} from './asyncStatusAutomationHelpers'
+import { createStore, getStore } from './storeRegistry'
 
 /**
  * @param dimensionStoreKey represents the name of the dimension of the redux store
@@ -58,10 +59,15 @@ const createDimension = <
     let asyncActions = asyncActionsClosure({ dimension: { ...baseDimension, selectors }, ...externalDependencies })
 
     if(addAsyncStatusAutomationState) {
-        asyncStatusesDimension = createAsyncStatusesDimension<TDimensionDefinitions['asyncActions'], TExternalDependencies>(
+        const asyncStatusesStore = createStore<AsyncStatusesState<TDimensionDefinitions['asyncActions']>>({})
+        asyncStatusesDimension = createAsyncStatusesDimension<
+            TDimensionDefinitions['asyncActions'], 
+            TExternalDependencies
+        >(
             dimensionStoreKey,
             asyncActions,
-            externalDependencies
+            externalDependencies,
+            asyncStatusesStore,
         )
 
         asyncActions = composeAsyncStatusAutomationState<TDimensionDefinitions['asyncActions']>(asyncActions, asyncStatusesDimension)

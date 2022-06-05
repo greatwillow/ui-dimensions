@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux'
 import { createDimensionStore } from './dimensionStoreRegistry'
 import { getStore } from './storeRegistry'
+import { useSelector } from 'react-redux'
 import {
     AnyState,
     BaseDimension,

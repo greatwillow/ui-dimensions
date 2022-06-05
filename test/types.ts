@@ -10,5 +10,5 @@ export type PlanetManagerState = {
 }
 
 export type PlanetManagerReducers = {
-	setPlanet: (planet: planetNamesEnum) => PlanetManagerState
+	setPlanet: (planet: planetNamesEnum) => PlanetManagerState,
 }
