@@ -33,13 +33,7 @@
                 "tsx": "never"
             }
         ],
-        "indent": [
-            "error",
-            4,
-            {
-                "VariableDeclarator": "first"
-            }
-        ],
+        "indent": ["error", 4, { "VariableDeclarator": "first" }],
         "keyword-spacing": [
             "error",
             {
@@ -53,11 +47,15 @@
                 }
             }
         ],
-        "linebreak-style": ["error", "windows"],
+        "linebreak-style": ["error", "unix"],
         "max-len": ["error", { "code": 150 }],
         "object-curly-spacing": ["error", "always", { "arraysInObjects": false, "objectsInObjects": false }],
         "one-var": ["off"],
         "semi": ["error", "never"],
+        "sort-imports": ["error", {
+            "ignoreCase": true,
+            "memberSyntaxSortOrder": ["all", "single", "multiple", "none"]
+        }],
         "spaced-comment": "off"
     },
     "settings": {

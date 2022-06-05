@@ -1,7 +1,8 @@
-# <a href='https://github.com/'><img src='./ui-dimensions' style="margin: 20px auto; display: block; width: 100%;" alt='UI Dimensions' aria-label='ui-dimensions' /></a>
+# <a href='https://github.com/'><img src='./ui-dimensions.jpg' style="margin: 20px auto; display: block; width: 100%;" alt='UI Dimensions' aria-label='ui-dimensions' /></a>
 
 # UI Dimensions
 
+*Simple modular React UI state management for React*
 
 ## Summary
 
@@ -20,7 +21,7 @@ Taking into consideration these observations, it's clear that the community has 
 npm install ui-dimensions
 ```
 
-### Base Usage
+### Quick Start Example
 
 The following example demonstrates the primary simple use-case for ui-dimensions where we create a state dimension with ```createBaseDimension()``` and then use it in the following React code.  This shows how ui-dimensions achieves the common functionality that Redux provides in a much more condensed and simple way. 
 

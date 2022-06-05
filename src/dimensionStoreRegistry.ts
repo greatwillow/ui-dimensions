@@ -1,7 +1,7 @@
 import { 
     AnyState, 
-    MainStore, 
-    DimensionStore 
+    DimensionStore, 
+    MainStore 
 } from './types'
 
 const createDimensionStore = <

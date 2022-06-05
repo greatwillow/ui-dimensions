@@ -1,7 +1,7 @@
-import React, { createElement } from 'react'
-import { Provider as ReactReduxProvider } from 'react-redux'
 import { getStore } from './storeRegistry'
 import { ProviderProps } from './types'
+import { Provider as ReactReduxProvider } from 'react-redux'
+import React, { createElement } from 'react'
 
 const Provider = ({
     store = getStore(),

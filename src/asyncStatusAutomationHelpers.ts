@@ -4,8 +4,9 @@ import {
     asyncLifecycleStatuses,
     AsyncStatusesState,
     AsyncStatusReducers,
-    SetAsyncStatusParams,
     BaseDimension,
+    MainStore,
+    SetAsyncStatusParams,
 } from './types'
 
 const getAsyncStatusInitialState = <
@@ -59,7 +60,8 @@ const createAsyncStatusesDimension = <
     > (
         originalStoreKey: string,
         asyncActions: TAsyncActions,
-        externalDependencies: TExternalDependencies
+        externalDependencies: TExternalDependencies,
+        store: MainStore<AsyncStatusesState<TAsyncActions>>
     ): BaseDimension<
     AsyncStatusesState<TAsyncActions>, 
     AsyncStatusReducers<AsyncStatusesState<TAsyncActions>>
@@ -76,7 +78,8 @@ const createAsyncStatusesDimension = <
                 dimensionStoreKey,
                 () => asyncStatusesDimensionInitialState,
                 () => getAsyncStatusReducers,
-                externalDependencies
+                externalDependencies,
+                store
             )
 
     return statusesDimension
