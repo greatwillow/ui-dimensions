@@ -19,7 +19,7 @@ export enum asyncLifecycleStatuses {
 export type ProviderProps = {
     store?: MainStore<any>
     context?: Context<ReactReduxContextValue>
-    children?: ReactNode[]
+    children?: ReactNode | ReactNode[]
 }
 
 export type AnyState = { [key: string]: any }
