@@ -4,8 +4,8 @@ import {
     asyncLifecycleStatuses,
     AsyncStatusesState,
     AsyncStatusReducers,
-    SetAsyncStatusParams,
     BaseDimension,
+    SetAsyncStatusParams,
 } from './types'
 
 const getAsyncStatusInitialState = <

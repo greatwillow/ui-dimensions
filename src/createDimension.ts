@@ -1,5 +1,5 @@
-import { getStore } from './storeRegistry'
 import { createBaseDimension } from './createBaseDimension'
+import { getStore } from './storeRegistry'
 import { 
     composeAsyncStatusAutomationState, 
     createAsyncStatusesDimension 

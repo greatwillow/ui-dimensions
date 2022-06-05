@@ -1,22 +1,22 @@
 import { useSelector } from 'react-redux'
-import { getStore } from './storeRegistry'
 import { createDimensionStore } from './dimensionStoreRegistry'
-import { 
-    BaseReducers, 
-    DimensionReducers, 
+import { getStore } from './storeRegistry'
+import {
+    AnyState,
+    BaseDimension,
+    BaseReducers,
+    DimensionReducers,
+    DispatchAction,
     MainStore,
     Reducers,
-    DispatchAction,
-    AnyState,
-    StateClosure,
     ReducersClosure,
-    BaseDimension,
+    StateClosure,
 } from './types'
 
 const mapReducersToStoreDispatch = <
-    TState, 
+    TState,
     TReturnReducers
-    > (
+>(
         dimensionStoreKey: string,
         reducers: Reducers<TState>,
         callback: DispatchAction,
@@ -31,9 +31,9 @@ const mapReducersToStoreDispatch = <
 }
 
 const initializeDimensionReducers = <
-    TState extends AnyState, 
+    TState extends AnyState,
     TBaseReducers extends BaseReducers<TState>
-    > (
+>(
         dimensionStoreKey: string,
         initialState: TState,
         reducers: DimensionReducers<TBaseReducers>,
@@ -69,7 +69,7 @@ const createBaseDimension = <
     TState extends AnyState,
     TReducers extends BaseReducers<TState>,
     TExternalDependencies
-    > (
+>(
         dimensionStoreKey: string,
         initialStateClosure: StateClosure<TState, TExternalDependencies>,
         reducersClosure: ReducersClosure<TState, TReducers, TExternalDependencies>,
@@ -81,9 +81,9 @@ const createBaseDimension = <
     const reducers = reducersClosure(externalDependencies)
 
     const dimensionReducers = initializeDimensionReducers(
-        dimensionStoreKey, 
-        initialState, 
-        reducers, 
+        dimensionStoreKey,
+        initialState,
+        reducers,
         store
     )
 
@@ -92,7 +92,7 @@ const createBaseDimension = <
     const dimensionState = () => useSelector((storeState: any) => storeState[dimensionStoreKey])
 
     const dispatchedDimensionReducers = mapReducersToStoreDispatch<TState, TReducers>(
-        dimensionStoreKey, 
+        dimensionStoreKey,
         dimensionReducers, (type: string) => (payload: any) => {
             store.dispatch({ type, payload })
         })
