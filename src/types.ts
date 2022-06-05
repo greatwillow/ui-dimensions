@@ -1,8 +1,9 @@
+
+import { ReactReduxContextValue } from 'react-redux'
 import {
     Context,
     ReactNode
 } from 'react'
-import { ReactReduxContextValue } from 'react-redux'
 import {
     Store,
     Unsubscribe,
@@ -19,7 +20,7 @@ export enum asyncLifecycleStatuses {
 export type ProviderProps = {
     store?: MainStore<any>
     context?: Context<ReactReduxContextValue>
-    children?: ReactNode[]
+    children?: ReactNode | ReactNode[]
 }
 
 export type AnyState = { [key: string]: any }
